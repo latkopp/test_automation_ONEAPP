@@ -3,7 +3,7 @@ Feature: GlobalPositionSmart
   #ONEAPP-14173
   @Android
 
-  Scenario Outline: Skórka SMART nawigacja
+  Scenario: Skórka SMART nawigacja
 #  Given Wybrany jest klient spełniający kryteria:
 #    | CLIENT_TYPE        | INDIVIDUAL |
 #    | CLIENT_DESCRIPTION | general    |
@@ -13,11 +13,11 @@ Feature: GlobalPositionSmart
 #    | Pulpit			            | False      |
 #    | Oferta      			        | False      |
 #    | Płatności 			        | False      |
-#    | Więcej                       | False      |
-#    | Szybki dostęp		    	| True       |
+#    | Więcej                        | False      |
+#    | Szybki dostęp		    	    | True       |
 #    | Nowy przelew      		    | True       |
-#    | Historia 			        | True       |
-#    | Blik                         | True       |
+    | Historia 			            | True       |
+    | Blik                          | True       |
     When Klient na ekranie "Pulpit" klika "Nowy przelew"
 #    Then Wyświetlony jest ekran "Nowy przelew"
 #    And Na ekranie "Nowy przelew" wyświetlone są następujące elementy:

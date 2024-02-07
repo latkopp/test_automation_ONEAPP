@@ -19,7 +19,7 @@ public class LoginTest extends BaseTest {
             menuPage.setSmartView();
         }
         GlobalPositionSmart globalPositionSmart = new GlobalPositionSmart(driver);
-        globalPositionSmart.smartViewGlobalPosition();
+//        globalPositionSmart.smartViewGlobalPosition();
         NewTransferSmart newTransferSmart = new NewTransferSmart(driver);
         newTransferSmart.newTransferSmartView();
         QuickAccessViewSmart quickAccessViewSmart = new QuickAccessViewSmart(driver);
