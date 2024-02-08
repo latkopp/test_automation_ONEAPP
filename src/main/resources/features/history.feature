@@ -7,7 +7,7 @@ Feature: GlobalPositionSmart
 #  Given Wybrany jest klient spełniający kryteria:
 #    | CLIENT_TYPE        | INDIVIDUAL |
 #    | CLIENT_DESCRIPTION | general    |
-    When Wybrany klient jest zalogowany i widzi pulpit na skórce smart
+  When Wybrany klient jest zalogowany i widzi pulpit na skórce smart
   Then Na ekranie "Pulpit" wyświetlone są następujące elementy:
 #    | Element                      | Widoczność |
 #    | Pulpit			            | False      |
@@ -16,15 +16,19 @@ Feature: GlobalPositionSmart
 #    | Więcej                        | False      |
 #    | Szybki dostęp		    	    | True       |
 #    | Nowy przelew      		    | True       |
-    | Historia 			            | True       |
-    | Blik                          | True       |
+#    | Historia 			            | True       |
+#    | Blik                          | True       |
+
     When Klient na ekranie "Pulpit" klika "Nowy przelew"
+
 #    Then Wyświetlony jest ekran "Nowy przelew"
 #    And Na ekranie "Nowy przelew" wyświetlone są następujące elementy:
-##      | Element                       | Widoczność |
-##      | Strzałka wstecz		       | True       |
+#      | Element                       | Widoczność |
+#      | Strzałka wstecz		       | True       |
 #    And Klient na ekranie "Nowy przelew" klika "Strzałka wstecz"
+
     Then Wyświetlony jest ekran "Pulpit"
+
 #    When Klient na ekranie "Pulpit" klika "Szybki dostęp"
 #    Then Na ekranie "Szybki dostęp" wyświetlone są następujące elementy:
 #      | Element                       | Widoczność |
@@ -42,7 +46,9 @@ Feature: GlobalPositionSmart
 #      | Program poleceń               | True       |
 #    When Klient na ekranie "Szybki dostęp" klika "przycisk zamknij"
 #    Then Wyświetlony jest ekran "Pulpit"
+
     When Klient na ekranie "Pulpit" klika przycisk skróty "+"
+
 #    Then Na ekranie "Skróty" wyświetlone są następujące elementy:
 #      | Element                      | Widoczność |
 #      | Centrum pomocy		          | True       |
