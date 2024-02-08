@@ -11,14 +11,14 @@ public class DriverFactory {
     private static AndroidDriver driver;
 
     public static AndroidDriver getDriver() throws MalformedURLException {
-        if(driver==null){
+        if (driver == null) {
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability(MobileCapabilityType.DEVICE_NAME, "TCL");
             caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
             caps.setCapability("appPackage", "com.santander.one.pl.zt2");
             caps.setCapability("appActivity", "es.bancosantander.apps.mobile.android.activities.PublicActivity");
-            caps.setCapability(MobileCapabilityType.NO_RESET,true);
-            driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),caps);
+            caps.setCapability(MobileCapabilityType.NO_RESET, true);
+            driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), caps);
         }
         return driver;
     }
