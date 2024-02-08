@@ -31,31 +31,23 @@ public class GlobalPositionSmart {
         PageFactory.initElements(driver, this);
     }
 
-    public boolean smartViewGlobalPosition(Map<String, String> dataTable) throws MalformedURLException {
+
+    /** Metoda sprawdzająca widoczność elementów interfejsu użytkownika na ekranie.
+     * dataTable mapa zawierająca nazwy elementów i oczekiwane wartości widoczności*/
+    public void smartViewGlobalPosition(Map<String, String> dataTable) throws MalformedURLException {
+        // Iteracja po parach klucz-wartość w mapie
         for (Map.Entry<String, String> entry : dataTable.entrySet()) {
             try {
-                getDriver().findElement(By.xpath("//*[@content-desc = '" + entry.getKey() + "']")).getAttribute("enabled").contains(entry.getValue());
-                System.out.println(getDriver().findElement(By.xpath("//*[@content-desc = '" + entry.getKey() + "']")).getAttribute("enabled").contains(entry.getValue()));
+                WebElement element = getDriver().findElement(By.xpath("//*[@content-desc = '" + entry.getKey() + "']"));     // Znajdź element na podstawie jego opisu i pobierz wartość atrybutu "enabled"
+                boolean enabled = Boolean.parseBoolean(element.getAttribute("enabled"));
+                System.out.println(entry.getKey() + ": " + enabled);                                                                      // Wyświetl nazwę elementu oraz jego stan widoczności (true/false)
+                if (enabled != Boolean.parseBoolean(entry.getValue())) {                                                                  // Sprawdź, czy oczekiwana wartość widoczności jest zgodna z rzeczywistą
+                    System.out.println("Nieprawidłowa widoczność elementu: " + entry.getKey());                                           // Jeśli wartości nie są zgodne, wyświetl komunikat
+                }
+            } catch (NoSuchElementException e) {
+                System.out.println(entry.getKey() + ": False");                                                                           // Jeśli element nie został znaleziony, wyświetl informację o braku widoczności
             }
-            catch (NoSuchElementException e){
-                System.out.println(entry.getKey()+"Not found");
-            }
-//            if (getDriver().findElement(By.xpath("//*[@text = '" + entry.getValue() + "'")).getAttribute("visibility").equals(entry.getKey())) {
-//                return false;
-//            }
         }
-        return true;
     }
-
-//    public void smartViewGlobalPosition() throws MalformedURLException {
-//        AppiumHelper.waitForElementToBeClickable(By.id("com.santander.one.pl.zt2:id/toolbar_drawer_image_view"));
-//        Assert.expectThrows(NoSuchElementException.class, () -> getDriver().findElement(By.id("compose:id/bottomBar_home_icon")));
-//        Assert.expectThrows(NoSuchElementException.class, () -> getDriver().findElement(By.id("compose:id/bottomBar_offer_icon")));
-//        Assert.expectThrows(NoSuchElementException.class, () -> getDriver().findElement(By.id("compose:id/bottomBar_sendMoney_label")));
-//        Assert.expectThrows(NoSuchElementException.class, () -> getDriver().findElement(By.id("compose:id/bottomBar_more_label")));
-//        Assert.assertTrue(quickAccessSmartButton.isDisplayed());
-//        Assert.assertTrue(newTransferSmartButton.isDisplayed());
-//        Assert.assertTrue(historySmartButton.isDisplayed());
-//        Assert.assertTrue(blikSmartButton.isDisplayed());
-//    }
 }
+

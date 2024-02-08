@@ -72,7 +72,6 @@ public class QuickAccessViewSmart {
         Assert.assertTrue(myGoalsButtonQuickAccessSmartView.isDisplayed());
         Assert.assertTrue(newDepositButtonQuickAccessSmartView.isDisplayed());
         Assert.assertTrue(cashLoanButtonQuickAccessSmartView.isDisplayed());
-//        DriverFactory.getDriver().findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(“Program”))"));
         Scroll scroll = new Scroll(getDriver());
         scroll.swipeVertical();
         Assert.assertTrue(financeAssistantQuickAccessSmartView.isDisplayed());
